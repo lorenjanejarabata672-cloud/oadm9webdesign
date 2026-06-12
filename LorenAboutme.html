@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<style>
+* {
+    margin: 0;
+
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: white;
+    color: black;
+}
+
+/* Container encompassing left bar and main web view */
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar Navigation */
+.sidebar {
+    width: 60px;
+    background-color: pink;
+    border-right: 1px solid #262626;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    position: fixed;
+    height: 100vh;
+    left: 0;
+    top: 0;
+}
+
+.sidebar-top i, .menu-icon {
+    font-size: 20px;
+    color: black;
+    margin-bottom: 30px;
+    cursor: pointer;
+    display: block;
+    text-align: center;
+}
+
+.sidebar-top i.active, .sidebar-top i:hover, .menu-icon:hover {
+    color: black;
+}
+
+/* Main Content Area */
+.main-content {
+    margin-left: 60px;
+    flex: 1;
+    max-width: 935px;
+    margin-right: auto;
+    padding: 30px 20px;
+}
+
+/* Profile Header Section */
+.profile-header {
+    display: flex;
+    margin-bottom: 44px;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.profile-avatar-container {
+    flex-shrink: 0;
+}
+
+.profile-avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #262626;
+}
+
+.profile-info {
+    flex: 1;
+}
+
+.username-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.username-row h2 {
+    font-size: 28px;
+    font-weight: 300;
+    
+}
+
+.settings-icon {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.stats-row {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.bio-data {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    background-color: pink;
+    color: black;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn:hover {
+    background-color: pink;
+}
+
+/* Story Highlights */
+.highlights-section {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 40px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+.highlight-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+    cursor: pointer;
+    min-width: 75px;
+}
+
+.circle-thumb {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 2px solid #262626;
+    padding: 2px;
+    margin-bottom: 8px;
+    background-color: white-space;
+}
+
+.circle-thumb img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.divider {
+    border: 0;
+    height: 1px;
+    background-color: black;
+    margin-bottom: 20px;
+}
+
+/* Navigation Tabs */
+.profile-tabs {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-bottom: 30px;
+    overflow-x: auto;
+    padding-bottom: 5px;
+}
+
+.tab-btn {
+    background-color: pink;
+    color: black;
+    border: 1px solid #2d2d2f;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.tab-btn.active, .tab-btn:hover {
+    background-color: pink;
+    border-color: pink;
+}
+
+/* Content Card Grid Layout */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* Individual Cards styles */
+.info-card {
+    background-color: pink;
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid #1c1c1e;
+    display: flex;
+    flex-direction: column;
+}
+
+.magenta-text {
+    color: black;
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.info-card ul {
+    list-style: none;
+}
+
+.info-card ul li {
+    font-size: 14px;
+    text aligment: bold;
+    color: black;
+    margin-bottom: 10px;
+    line-height: 1.4;
+    position: relative;
+    padding-left: 15px;
+}
+
+/* Bullet markers mirroring the screenshot dots */
+.info-card ul li::before {
+    content: "•";
+    color: black;
+    position: absolute;
+    left: 0;
+}
+
+/* Contact Form Layout inside Card */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.contact-form input, .contact-form textarea {
+    background-color: white;
+    border: 1px solid #2c2c2e;
+    border-radius: 6px;
+    color: black;
+    padding: 10px;
+    font-size: 13px;
+    width: 100%;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    outline: none;
+    border-color: pink;
+}
+
+/* Social links specific card adjustments */
+.socials-list li {
+    word-break: break-all;
+}
+
+/* Images Grid handling */
+.image-card {
+    border-radius: 12px;
+    overflow: hidden;
+    height: 100%;
+    border: 1px solid #1c1c1e;
+}
+
+.image-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+</style>
+<div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-top">
+                <i class="fa-solid fa-house active"></i>
+                <i class="fa-solid fa-play"></i>
+                <i class="fa-solid fa-heart"></i>
+                <i class="fa-solid fa-envelope"></i>
+                <i class="fa-solid fa-face-smile"></i>
+            </div>
+            <i class="fa-solid fa-bars menu-icon"></i>
+        </aside>
+
+        <main class="main-content">
+            
+            <header class="profile-header">
+                <div class="profile-avatar-container">
+                    <img src=profile.jpg alt="Profile Picture" class="profile-avatar">
+                </div>
+                <div class="profile-info">
+                    <div class="username-row">
+                        <h2>loreyn_nn</h2>
+                        <i class="fa-solid fa-gear settings-icon"></i>
+                    </div>
+                    
+                    <div class="stats-row">
+                        <span><strong>57</strong> posts</span>
+                        <span><strong>1,567</strong> followers</span>
+                        <span><strong>305</strong> following</span>
+                    </div>
+
+                    <div class="bio-data">
+                        <p><strong>Complete Name:</strong> Loren Jane Jarabata</p>
+                        <p><strong>Course and Year:</strong> BS Office Administration</p>
+                        <p><strong>Career Goal:</strong> Grow my skills | Build a community | Spark connections 💡.</p>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="btn">Edit Profile</button>
+                        <a href="index.html" class="btn">Log-Out</a>
+                    </div>
+                </div>
+            </header>
+
+            <section class="highlights-section">
+                <div class="highlight-item">
+                    <div class="circle-thumb"><img src=MNL.jpg alt="MNL"></div>
+                    <span>MNL</span>
+                </div>
+                <div class="highlight-item">
+                    <div class="circle-thumb"><img src="Love.jpg" alt="💝"></div>
+                    <span>💝</span></span>
+                </div>
+                <div class="highlight-item">
+                    <div class="circle-thumb"><img src="Fam.jpg" alt="Fam"></div>
+                    <span>Fam</span>
+                </div>
+                <div class="highlight-item">
+                    <div class="circle-thumb"><img src="pink.jpg" alt="💄"></div>
+                    <span>💄</span>
+                </div>
+            </section>
+
+            <hr class="divider">
+
+            <nav class="profile-tabs">
+                <a href=Other(Loren).html class="tab-btn active">About ME</a>
+                <button class="tab-btn">Other</button>
+                <a href=post(loren).html class="tab-btn">Post</a>
+                <a href=resumeloren.html class="tab-btn">Resume</a>
+                <button class="tab-btn">Favorites</button>
+
+            </nav>
+
+            <section class="cards-grid">
+                
+                <div class="info-card">
+                    <h3 class="magenta-text">Elementary School </h3>
+                    <ul>
+                        <li>Guija Sabang West Elementary School(GSWES)</li>
+                        <li>Batch 2019</li>
+                        <li>Academic Achiever</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h3 class="magenta-text">High School </h3>
+                    <ul>
+                        <li>Antique Vocational School</li>
+                        <li>Batch 2024</li>
+                        <li>Graduated with honors.</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h3 class="magenta-text">College </h3>
+                    <ul>
+                        <li>University of Antique</li>
+                        <li>BS Office Administration </li>
+                        <li>Dean's Lister</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h3 class="magenta-text">Contacts information </h3>
+                    <ul>
+                        <li>Mobile: 09707983405</li>
+                        <li>Facebook: facebook.com/lorenjane.jarabata.18</li>
+                        <li>Instagram: https://www.instagram.com/loreyn_nnn</li>
+                        <li>Email: lorenjanejarabata@gmail.com</li>
+</body>                        
+</html>

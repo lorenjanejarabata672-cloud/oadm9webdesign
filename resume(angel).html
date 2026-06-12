@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Angel Marie Dejapon</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .resume-container {
+            background: #ffffff;
+            width: 850px;
+            min-height: 1100px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            display: flex;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Left Sidebar Geometric Accents */
+        .resume-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-top: 180px solid #4B77BE;
+            border-right: 180px solid transparent;
+            z-index: 1;
+        }
+
+        /* LEFT SIDEBAR */
+        .sidebar {
+            background-color: #f4f7f6;
+            width: 35%;
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            z-index: 2;
+            border-right: 1px solid #e0e0e0;
+        }
+
+        .profile-section {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .profile-img {
+            width: 160px;
+            height: 200px;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            border-radius: 4px;
+        }
+
+        .name-title {
+            margin-top: 15px;
+        }
+
+        .name-title h1 {
+            color: #4A69BB;
+            font-size: 26px;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .name-title p {
+            color: #5C76B1;
+            font-size: 18px;
+            margin-top: 5px;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .contact-info {
+            font-size: 13px;
+            color: #555;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding-left: 5px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title {
+            color: #444;
+            font-size: 16px;
+            font-weight: 600;
+            border-bottom: 2px solid #B0C4DE;
+            padding-bottom: 5px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .objective-text {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+            color: #555;
+        }
+
+        .info-table td {
+            padding: 4px 0;
+            vertical-align: top;
+        }
+
+        .info-table td:first-child {
+            font-weight: 600;
+            color: #777;
+            width: 40%;
+            text-transform: uppercase;
+            font-size: 11px;
+        }
+
+        .skills-list {
+            list-style: none;
+            font-size: 13px;
+            color: #555;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .skills-list li::before {
+            content: "•";
+            color: #4A69BB;
+            font-weight: bold;
+            display: inline-block;
+            width: 15px;
+        }
+
+        /* MAIN CONTENT AREA */
+        .main-content {
+            width: 65%;
+            padding: 50px 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .main-section-title {
+            color: #666;
+            font-size: 20px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid #4A69BB;
+            padding-bottom: 5px;
+            margin-bottom: 25px;
+        }
+
+        /* Timeline / Nodes design */
+        .timeline {
+            position: relative;
+            padding-left: 25px;
+            border-left: 2px solid #B0C4DE;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .timeline-item {
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -32px;
+            top: 4px;
+            background: #4A69BB;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .timeline-category {
+            font-size: 11px;
+            font-weight: bold;
+            color: #4A69BB;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 2px;
+        }
+
+        .timeline-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .timeline-sub {
+            font-size: 13px;
+            color: #666;
+            margin-top: 2px;
+        }
+
+        .timeline-date {
+            font-size: 12px;
+            color: #888;
+            margin-top: 2px;
+        }
+
+        .achievements-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .achievement-item {
+            position: relative;
+            padding-left: 25px;
+            border-left: 2px solid #B0C4DE;
+        }
+
+        .achievement-item::before {
+            content: '';
+            position: absolute;
+            left: -32px;
+            top: 4px;
+            background: #4A69BB;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .achievement-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        .achievement-sub {
+            font-size: 12px;
+            color: #666;
+            margin-top: 2px;
+        }
+
+        .inner-bullet-list {
+            list-style: none;
+            margin-top: 5px;
+            padding-left: 5px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .inner-bullet-list li {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .inner-bullet-list li::before {
+            content: "▪";
+            color: #777;
+            display: inline-block;
+            width: 15px;
+            font-size: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="resume-container">
+        
+        <div class="sidebar">
+            <div class="profile-section">
+                <img src="resumeangel.jpg" alt="Angel Marie Dejapon" class="profile-img">
+                <div class="name-title">
+                    <h1>Angel Marie Dejapon</h1>
+                    <p>Receptionist</p>
+                </div>
+            </div>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📞</span>
+                    <span>+639943709437</span>
+                </div>
+                <div class="contact-item">
+                    <span>✉</span>
+                    <span>dejapon.angel028@gmail.com</span>
+                </div>
+            </div>
+
+            <div>
+                <h2 class="section-title">Personal Identification</h2>
+                <table class="info-table">
+                    <tr><td>Age</td><td>: 23 years old</td></tr>
+                    <tr><td>Birthdate</td><td>: August 28, 2002</td></tr>
+                    <tr><td>Height</td><td>: 5'2"</td></tr>
+                    <tr><td>Weight</td><td>: 45 kg</td></tr>
+                    <tr><td>Nationality</td><td>: Filipino</td></tr>
+                    <tr><td>Birth Place</td><td>: Poblacion, Patnongon, Antique</td></tr>
+                    <tr><td>Civil Status</td><td>: Single</td></tr>
+                    <tr><td>Religion</td><td>: Roman Catholic</td></tr>
+                </table>
+            </div>
+
+            <div>
+                <h2 class="section-title">Objectives</h2>
+                <p class="objective-text">
+                    "Dedicated and highly organized professional seeking to leverage strong administrative, clerical, and interpersonal skills to support team goals and enhance operational efficiency. Committed to maintaining high standards of accuracy and reliability in a fast-paced environment."
+                </p>
+            </div>
+
+            <div>
+                <h2 class="section-title">Skills</h2>
+                <ul class="skills-list">
+                    <li>Management Skills</li>
+                    <li>Communication</li>
+                    <li>Time management</li>
+                    <li>Word processing</li>
+                    <li>Critical Thinking</li>
+                    <li>Leadership</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="main-content">
+            
+            <div>
+                <h2 class="main-section-title">🎓 Educational Background</h2>
+                <div class="timeline">
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-category">Graduate</div>
+                        <div class="timeline-title">Master of Business Administration (MBA)</div>
+                        <div class="timeline-sub">University of Antique - Main Campus</div>
+                        <div class="timeline-sub">Sibalom, Antique</div>
+                        <div class="timeline-date">2028 - present</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-category">Tertiary</div>
+                        <div class="timeline-title">Bachelor of Science in Office Administration</div>
+                        <div class="timeline-sub">University of Antique - Main Campus</div>
+                        <div class="timeline-sub">Sibalom, Antique | <em>Cum Laude</em></div>
+                        <div class="timeline-date">2024 - 2028</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-category">Secondary</div>
+                        <div class="timeline-title">St. Augustine's Academy of Patnongon Inc.</div>
+                        <div class="timeline-sub">Poblacion, Patnongon, Antique | <em>With honors</em></div>
+                        <div class="timeline-date">2018 - 2024</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-category">Primary</div>
+                        <div class="timeline-title">Col. Ruperto Abellon Sr. Memorial School</div>
+                        <div class="timeline-sub">Poblacion, Patnongon, Antique</div>
+                        <div class="timeline-date">2012 - 2018</div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <h2 class="main-section-title">🏅 Achievements</h2>
+                <div class="achievements-list">
+                    
+                    <div class="achievement-item">
+                        <div class="achievement-title">Civil Service Professional Exam Passer</div>
+                        <div class="achievement-sub">Civil Service Commission | August 2026</div>
+                    </div>
+
+                    <div class="achievement-item">
+                        <div class="achievement-title">Dean's Lister</div>
+                        <div class="achievement-sub">2024 - 2028</div>
+                    </div>
+
+                    <div class="achievement-item">
+                        <div class="achievement-title">TESDA Course Completion Certificate</div>
+                        <ul class="inner-bullet-list">
+                            <li>Participating in Workplace Communication</li>
+                            <li>Receiving and Responding to Workplace Communication</li>
+                            <li>English for Business and Entrepreneurship</li>
+                        </ul>
+                        <div class="achievement-sub" style="margin-top: 5px;">2026</div>
+                    </div>
+
+                    <div class="achievement-item">
+                        <div class="achievement-title">Certificate of Appreciation: Volunteer Service (Typhoon Paeng)</div>
+                        <div class="achievement-sub">November 2022</div>
+                    </div>
+
+                    <div class="achievement-item">
+                        <div class="achievement-title">Best in Work Immersion Portfolio</div>
+                        <div class="achievement-sub">2023 - 2024</div>
+                    </div>
+
+                    <div class="achievement-item">
+                        <div class="achievement-title">Excellence in Work Immersion</div>
+                        <div class="achievement-sub">2023 - 2024</div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

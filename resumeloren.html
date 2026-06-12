@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Loren Jane Jarabata</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f0f0f0;
+    color: #333333;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+/* Page Container matching classic A4 proportions */
+.resume-container {
+    width: 100%;
+    max-width: 850px;
+    background-color: #ffffff;
+    display: flex;
+    min-height: 1100px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================
+   LEFT SIDEBAR (Muted Peach/Pinkish Tone)
+   ========================================== */
+.sidebar {
+    width: 38%;
+    background-color: #ebd1c5; /* Matches the image's background hue */
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.profile-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.profile-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #ffffff;
+}
+
+.sidebar-section h2 {
+    font-size: 1rem;
+    font-weight: 700;
+    border-bottom: 2px solid #333333;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+.info-list {
+    list-style: none;
+}
+
+.info-list li {
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+/* Contact Badges Setup */
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    background-color: transparent;
+}
+
+.icon-box {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.contact-text {
+    background-color: #ffffff;
+    padding: 0 12px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    flex-grow: 1;
+    white-space: pre-line;
+    line-height: 1.2;
+}
+
+.skills-list {
+    padding-left: 20px;
+}
+
+.skills-list li {
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+}
+
+/* ==========================================
+   MAIN CONTENT AREA
+   ========================================== */
+.main-content {
+    width: 62%;
+    padding: 50px 40px;
+    background-color: #ffffff;
+}
+
+/* Header Section with grey accent block */
+.header {
+    background-color: #e0e0e0;
+    padding: 25px;
+    margin-bottom: 30px;
+    margin-top: -10px;
+}
+
+.header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.header .subtitle {
+    font-size: 1.1rem;
+    color: #555555;
+    text-decoration: underline;
+    letter-spacing: 0.5px;
+}
+
+/* Section Structural Layouts */
+.content-section {
+    margin-bottom: 30px;
+}
+
+.content-section h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-bottom: 2px solid #333333;
+    padding-bottom: 3px;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+.content-section p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #444444;
+}
+
+/* Education items spacing */
+.edu-item {
+    margin-bottom: 18px;
+}
+
+.edu-item h3 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+
+.edu-item .degree {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.edu-item .institution, 
+.edu-item .details, 
+.edu-item .location {
+    font-size: 0.85rem;
+    color: #555555;
+}
+
+/* Achievements List formatting */
+.achievements-list {
+    padding-left: 20px;
+}
+
+.achievements-list li {
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.sub-detail {
+    font-size: 0.85rem;
+    color: #666666;
+}
+
+/* Print Optimization Layout */
+@media print {
+    body {
+        background-color: #ffffff;
+        padding: 0;
+    }
+    .resume-container {
+        box-shadow: none;
+        max-width: 100%;
+    }
+}
+</style>
+    <div class="resume-container">
+        
+        <aside class="sidebar">
+            <div class="profile-container">
+                <img src="resumeprofile.jpg" alt="Loren Jane Jarabata" class="profile-img">
+            </div>
+
+            <div class="sidebar-section">
+                <h2>PERSONAL IDENTIFICATION</h2>
+                <ul class="info-list">
+                    <li><strong>AGE:</strong> 22 years old</li>
+                    <li><strong>SEX:</strong> Female</li>
+                    <li><strong>BIRTHDATE:</strong> February 18, 2006</li>
+                    <li><strong>HEIGHT:</strong> 4'11</li>
+                    <li><strong>WEIGHT:</strong> 39 kg</li>
+                    <li><strong>CITIZENSHIP:</strong> Filipino</li>
+                    <li><strong>CIVIL STATUS:</strong> Single</li>
+                    <li><strong>RELIGION:</strong> Roman Catholic</li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h2>CONTACT</h2>
+                <div class="contact-item">
+                    <div class="icon-box"><i class="fa-solid fa-phone"></i></div>
+                    <span class="contact-text">09707983405</span>
+                </div>
+                <div class="contact-item">
+                    <div class="icon-box"><i class="fa-solid fa-envelope"></i></div>
+                    <span class="contact-text">lorenjanejarabata<br>@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <div class="icon-box"><i class="fa-solid fa-location-dot"></i></div>
+                    <span class="contact-text">Guija, Bugasong, Antique</span>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h2>SKILLS</h2>
+                <ul class="skills-list">
+                    <li>Professional Communication</li>
+                    <li>Time Management</li>
+                    <li>Multitasking</li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <h1>LOREN JANE JARABATA</h1>
+                <p class="subtitle">ADMINISTRATIVE ASSISTANT II</p>
+            </header>
+
+            <section class="content-section">
+                <h2>OBJECTIVE</h2>
+                <p>To secure a challenging position that offers opportunities for growth, learning, and contribution, enabling me to become a productive member of the team and society.</p>
+            </section>
+
+            <section class="content-section">
+                <h2>EDUCATION</h2>
+                
+                <div class="edu-item">
+                    <h3>GRADUATE:</h3>
+                    <p class="degree">Master of Business Administration (9 Units Completed)</p>
+                    <p class="institution">University of Antique-Main Campus | 2028-Present</p>
+                </div>
+
+                <div class="edu-item">
+                    <h3>TERTIARY:</h3>
+                    <p class="degree">Bachelor of Science in Business Administration</p>
+                    <p class="details">Cum Laude</p>
+                    <p class="institution">University of Antique-Main Campus | Graduated: 2028</p>
+                    <p class="location">Sibalom Antique</p>
+                </div>
+
+                <div class="edu-item">
+                    <h3>SECONDARY:</h3>
+                    <p class="degree">Graduated with high honors</p>
+                    <p class="institution">Antique Vocational School</p>
+                    <p class="details">S.Y. 2023-2017</p>
+                    <p class="location">Bugasong Antique</p>
+                </div>
+
+                <div class="edu-item">
+                    <h3>PRIMARY:</h3>
+                    <p class="institution">Guija Sabang West Elementary School (GSWES)</p>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>ACHIEVEMENTS</h2>
+                <ul class="achievements-list">
+                    <li><strong>Civil Service Professional Passer Exam</strong><br><span class="sub-detail">Civil Service Commission August 2026</span></li>
+                    <li><strong>Dean's Lister for 8 Semester</strong><br><span class="sub-detail">(Cum Laude S.Y. 2027-2028)</span></li>
+                    <li><strong>TESDA Certifications</strong> <span class="sub-detail">March 2026</span></li>
+                    <li><strong>Certificate of Participation - Seminar on AI and Communication</strong> <span class="sub-detail">December 2025</span></li>
+                    <li><strong>Academic Achiever</strong> <span class="sub-detail">2022-2024</span></li>
+                </ul>
+            </section>
+        </main>
+
+    </div>
+
+</body>
+</html>
